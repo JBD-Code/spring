@@ -41,7 +41,7 @@ public class UserController extends MultiActionController {
 		
 		return mav; 
 	}
-	
+	//url 요청명에서 do를 제외한 요청명을 가져오는 Method 
 	private String getViewName(HttpServletRequest request) throws Exception{
 		String contextPath = request.getContextPath();
 		String uri = (String)request.getAttribute("javax.servlet.include.request_uri");
