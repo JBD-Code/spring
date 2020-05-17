@@ -30,10 +30,14 @@
 			values(#{id}, #{pwd}, #{name}, #{email})
 			
 		]]>
-		
-		
 	
 	</insert>
+	<select id="memberSelect" parameterType="String" resultType="memberVO">
+		<![CDATA[
+			select * from t_member 
+			where id = #{id}
+		
+		]]>
+	</select>	
 	
-
 </mapper>

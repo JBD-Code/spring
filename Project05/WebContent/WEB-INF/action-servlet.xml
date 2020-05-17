@@ -37,6 +37,7 @@
 				<prop key="/member/memberList.do">memberList</prop>
 				<prop key="/member/memberForm.do">memberForm</prop>
 				<prop key="/member/memberInsert.do">memberInsert</prop>
+				<prop key="/member/memberInfo.do">memberInfo</prop>
 			</props>	
 		</property>
 	</bean>

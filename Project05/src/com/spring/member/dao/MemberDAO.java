@@ -10,4 +10,6 @@ public interface MemberDAO {
 	
 	public List<MemberVO> memberList()throws DataAccessException, Exception;
 	public void memberInsert(MemberVO memberVO);
+	public MemberVO memberSelect(String id);
+
 }

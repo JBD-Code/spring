@@ -60,6 +60,23 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		
 		return mav;
 	}
+	
+
+	@Override
+	public ModelAndView memberInfo(HttpServletRequest request, HttpServletResponse response)
+			throws DataAccessException, Exception {
+			
+			String id = request.getParameter("id");
+			MemberVO memberVO = new MemberVO();
+			String viewName = getViewName(request); 
+			System.out.println("viewName = "+ viewName);
+			memberVO = memberService.selectMember(id);
+			
+			ModelAndView mav = new ModelAndView(viewName);
+			mav.addObject("memberVO", memberVO);
+		
+		return mav;
+	}
 
 	private String getViewName(HttpServletRequest request) throws Exception {
 		

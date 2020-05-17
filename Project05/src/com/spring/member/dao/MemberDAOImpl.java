@@ -11,7 +11,6 @@ public class MemberDAOImpl implements MemberDAO{
 	
 	private SqlSession sqlSession ; 
 	
-	
 	public void setSqlSession(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
@@ -22,6 +21,7 @@ public class MemberDAOImpl implements MemberDAO{
 	public List<MemberVO> memberList() throws DataAccessException {
 		List<MemberVO> memberList = null; 
 		memberList = sqlSession.selectList("mapper.member.memberList");
+		
 		return memberList;
 	}
 
@@ -36,6 +36,14 @@ public class MemberDAOImpl implements MemberDAO{
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public MemberVO memberSelect(String id) {
+		MemberVO memberVO = null ; 
+		memberVO = sqlSession.selectOne("mapper.member.memberSelect", id);
+		return memberVO; 
+	}
+	
 	
 	
 	

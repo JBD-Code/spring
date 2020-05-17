@@ -27,6 +27,13 @@ public class MemberServiceImpl implements MemberService {
 
 		memberDAO.memberInsert(memberVO);
 	}
+
+	@Override
+	public MemberVO selectMember(String id) throws Exception {
+		
+		return memberDAO.memberSelect(id);
+	}
+	
 	
 	
 	
