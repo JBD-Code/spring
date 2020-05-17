@@ -9,4 +9,5 @@ import org.springframework.web.servlet.ModelAndView;
 public interface MemberController {
 
 	public ModelAndView memberList(HttpServletRequest request, HttpServletResponse response) throws DataAccessException, Exception; 
+	public ModelAndView memberInsert(HttpServletRequest request, HttpServletResponse response) throws DataAccessException, Exception;
 }

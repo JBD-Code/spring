@@ -9,4 +9,5 @@ import com.spring.member.vo.MemberVO;
 public interface MemberService {
 	
 	public List<MemberVO> listMember() throws Exception;
+	public void insertMember(MemberVO memberVO) throws Exception;
 }

@@ -9,5 +9,5 @@ import com.spring.member.vo.MemberVO;
 public interface MemberDAO {
 	
 	public List<MemberVO> memberList()throws DataAccessException, Exception;
-	
+	public void memberInsert(MemberVO memberVO);
 }

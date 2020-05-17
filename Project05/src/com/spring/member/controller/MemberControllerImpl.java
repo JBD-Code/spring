@@ -44,6 +44,23 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		return mav;
 	}
 	
+	
+	@Override
+	public ModelAndView memberInsert(HttpServletRequest request, HttpServletResponse response)
+			throws DataAccessException, Exception {
+			
+			request.setCharacterEncoding("UTF-8");
+			String id = request.getParameter("id");
+			String pwd = request.getParameter("pwd");
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			MemberVO memberVO = new MemberVO(id, pwd, name, email);
+			memberService.insertMember(memberVO);
+			ModelAndView mav = new ModelAndView("redirect:/member/memberList.do");
+		
+		return mav;
+	}
+
 	private String getViewName(HttpServletRequest request) throws Exception {
 		
 		String contextPath = request.getContextPath();
