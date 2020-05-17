@@ -53,6 +53,14 @@ public class MemberDAOImpl implements MemberDAO{
 		sqlSession.update("mapper.member.memberUpdate", memberMap);
 		
 	}
+
+
+
+	@Override
+	public void memberDelete(String id) {
+		sqlSession.delete("mapper.member.memberDelete", id);
+		
+	}
 	
 	
 	

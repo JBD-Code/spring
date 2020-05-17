@@ -101,6 +101,18 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 			
 		return mav;
 	}
+	
+	
+
+	@Override
+	public ModelAndView memberDelete(HttpServletRequest request, HttpServletResponse response)
+			throws DataAccessException, Exception {
+		String id = request.getParameter("id");
+		memberService.deleteMember(id);
+		ModelAndView mav = new ModelAndView("redirect:/member/memberList.do");
+		
+		return mav;
+	}
 
 	private String getViewName(HttpServletRequest request) throws Exception {
 		

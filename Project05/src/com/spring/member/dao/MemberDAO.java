@@ -13,4 +13,5 @@ public interface MemberDAO {
 	public void memberInsert(MemberVO memberVO);
 	public MemberVO memberSelect(String id);
 	public void memberUpdate(Map memberMap);
+	public void memberDelete(String id);
 }

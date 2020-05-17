@@ -39,6 +39,12 @@ public class MemberServiceImpl implements MemberService {
 	public void updateMember(Map memberMap) throws Exception {
 		memberDAO.memberUpdate(memberMap);
 	}
+
+	@Override
+	public void deleteMember(String id) throws Exception {
+		memberDAO.memberDelete(id);
+	}
+	
 	
 	
 	
