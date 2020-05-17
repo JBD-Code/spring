@@ -1,6 +1,7 @@
 package com.spring.member.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.dao.DataAccessException;
@@ -39,10 +40,21 @@ public class MemberDAOImpl implements MemberDAO{
 
 	@Override
 	public MemberVO memberSelect(String id) {
-		MemberVO memberVO = null ; 
+		Object memberVO = null ; 
 		memberVO = sqlSession.selectOne("mapper.member.memberSelect", id);
-		return memberVO; 
+		return (MemberVO) memberVO; 
 	}
+
+
+
+	@Override
+	public void memberUpdate(Map memberMap) {
+		
+		sqlSession.update("mapper.member.memberUpdate", memberMap);
+		
+	}
+	
+	
 	
 	
 	

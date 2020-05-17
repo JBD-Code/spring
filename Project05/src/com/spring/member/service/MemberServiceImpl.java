@@ -1,6 +1,7 @@
 package com.spring.member.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.dao.DataAccessException;
 
@@ -32,6 +33,11 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO selectMember(String id) throws Exception {
 		
 		return memberDAO.memberSelect(id);
+	}
+
+	@Override
+	public void updateMember(Map memberMap) throws Exception {
+		memberDAO.memberUpdate(memberMap);
 	}
 	
 	

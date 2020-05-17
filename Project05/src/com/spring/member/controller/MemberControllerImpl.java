@@ -1,6 +1,8 @@
 package com.spring.member.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +17,7 @@ import com.spring.member.vo.MemberVO;
 public class MemberControllerImpl extends MultiActionController implements MemberController {
 
 	private MemberService memberService;
-
+	
 	public void setMemberService(MemberService memberService) {
 		this.memberService = memberService;
 	}
@@ -75,6 +77,28 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 			ModelAndView mav = new ModelAndView(viewName);
 			mav.addObject("memberVO", memberVO);
 		
+		return mav;
+	}
+	
+	
+
+	@Override
+	public ModelAndView memberUpdate(HttpServletRequest request, HttpServletResponse response)
+			throws DataAccessException, Exception {
+			request.setCharacterEncoding("UTF-8");
+			String id =request.getParameter("id");
+			String pwd = request.getParameter("pwd");
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			Map memberMap = new HashMap();
+			memberMap.put("id", id);
+			memberMap.put("pwd", pwd);
+			memberMap.put("name", name);
+			memberMap.put("email", email);
+			memberService.updateMember(memberMap);
+			
+			ModelAndView mav = new ModelAndView("redirect:/member/memberList.do");
+			
 		return mav;
 	}
 

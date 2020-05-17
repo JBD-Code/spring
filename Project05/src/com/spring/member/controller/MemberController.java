@@ -11,4 +11,5 @@ public interface MemberController {
 	public ModelAndView memberList(HttpServletRequest request, HttpServletResponse response) throws DataAccessException, Exception; 
 	public ModelAndView memberInsert(HttpServletRequest request, HttpServletResponse response) throws DataAccessException, Exception;
 	public ModelAndView memberInfo(HttpServletRequest request, HttpServletResponse response) throws DataAccessException, Exception;
+	public ModelAndView memberUpdate(HttpServletRequest request, HttpServletResponse response) throws DataAccessException, Exception;
 }

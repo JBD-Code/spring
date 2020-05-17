@@ -10,11 +10,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Member Form</title>
+<title>Member Information</title>
 </head>
 <body>
 	<form method="post"   action="${contextPath}/member/memberUpdate.do">
-		<h1  style="text-align:center">Sign Up</h1>	
+		<h1  style="text-align:center">Member Information</h1>	
 		<table  align="center">
 		    <tr>
 		       <td width="200"><p align="right">ID</td>
