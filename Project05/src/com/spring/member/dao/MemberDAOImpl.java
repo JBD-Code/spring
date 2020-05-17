@@ -24,6 +24,5 @@ public class MemberDAOImpl implements MemberDAO{
 		memberList = sqlSession.selectList("mapper.member.memberList");
 		return memberList;
 	}
-
 	
 }

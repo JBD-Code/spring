@@ -35,6 +35,7 @@
 		<property name="mappings">
 			<props>
 				<prop key="/member/memberList.do">memberList</prop>
+				<prop key="/member/memberForm.do">memberForm</prop>
 			</props>	
 		</property>
 	</bean>

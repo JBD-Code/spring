@@ -33,6 +33,16 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 
 		return mav;
 	}
+	public ModelAndView memberForm(HttpServletRequest request, HttpServletResponse response) 
+			throws Exception {
+			
+			String viewName = getViewName(request);
+			System.out.println("viewName = "+ viewName);
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName(viewName);
+		
+		return mav;
+	}
 	
 	private String getViewName(HttpServletRequest request) throws Exception {
 		

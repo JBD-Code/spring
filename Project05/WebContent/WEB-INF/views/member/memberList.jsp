@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 정보 출력창</title>
+<title>Member List</title>
 </head>
 <body>
 	<table border="1"  align="center"  width="80%">
@@ -34,5 +34,6 @@
 	    </tr>
 	  </c:forEach>   
 	</table>
+	<h3 style="text-align:center"><a href="${contextPath}/member/memberForm.do">Member Sign Up</a></h3>
 </body>
 </html>
