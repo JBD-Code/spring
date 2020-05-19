@@ -10,28 +10,30 @@
 <meta charset="UTF-8">
 <title>Member Login</title>
 </head>
-<body>
+	<body>
 		<table align="center">
 			<tr align="center" bgcolor="lightblue">
 				<td>ID</td>
 				<%-- <td>${id}</td> --%>	
-				<td>${memberInfo.id}</td> 
+				<%-- <td>${memberInfo.id}</td> --%> 
+				<td>${id}</td> 
 			</tr>	
 			<tr align="center" bgcolor="lightblue">
 				<td>Password</td>
 				<%-- <td>${pwd}</td> --%>	
-				<td>${memberInfo.pwd}</td>	
+				<%-- <td>${memberInfo.pwd}</td> --%>	
+				<td>${pwd}</td>	
 			</tr>
 			<tr align="center" bgcolor="lightblue">
 				<td>Name</td>
 				<%-- <td>${name}</td> --%>	
-				<%-- <td>${memberInfo.name}</td>	 --%>
+				<%-- <td>${memberInfo.name}</td>--%>
 			</tr>
 			<tr align="center" bgcolor="lightblue">
 				<td>Email</td>
 				<%-- <td>${email}</td> --%>	
-				<%-- <td>${memberInfo.email}</td>	 --%>
+				<%-- <td>${memberInfo.email}</td>--%>
 			</tr>
 		</table>
-</body>
+	</body>
 </html>
