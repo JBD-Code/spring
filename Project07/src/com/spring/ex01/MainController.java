@@ -7,7 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-@Controller("mainController")
+
+/*@Controller("mainController")*/
 @RequestMapping("/test")
 //public class MainController extends MultiActionController {
 public class MainController {
