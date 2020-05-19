@@ -14,19 +14,23 @@
 		<table align="center">
 			<tr align="center" bgcolor="lightblue">
 				<td>ID</td>
-				<td>${id}</td>	
+				<%-- <td>${id}</td> --%>	
+				<td>${memberInfo.id}</td> 
 			</tr>	
 			<tr align="center" bgcolor="lightblue">
 				<td>Password</td>
-				<td>${pwd}</td>	
+				<%-- <td>${pwd}</td> --%>	
+				<td>${memberInfo.pwd}</td>	
 			</tr>
 			<tr align="center" bgcolor="lightblue">
 				<td>Name</td>
-				<td>${name}</td>	
+				<%-- <td>${name}</td> --%>	
+				<td>${memberInfo.name}</td>	
 			</tr>
 			<tr align="center" bgcolor="lightblue">
 				<td>Email</td>
-				<td>${email}</td>	
+				<%-- <td>${email}</td> --%>	
+				<td>${memberInfo.email}</td>	
 			</tr>
 		</table>
 </body>
