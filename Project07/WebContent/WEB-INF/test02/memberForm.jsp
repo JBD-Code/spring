@@ -20,6 +20,7 @@
 			<tr align="center" bgcolor="lightblue">
 				<td>Password</td>
 				<td><input type="password" name="pwd"></td>	
+				<input type="hidden" name="name" value="spring">
 			</tr>
 			<tr>
 				<td>

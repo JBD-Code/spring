@@ -20,6 +20,14 @@
 				<td>Password</td>
 				<td>${pwd}</td>	
 			</tr>
+			<tr align="center" bgcolor="lightblue">
+				<td>Name</td>
+				<td>${name}</td>	
+			</tr>
+			<tr align="center" bgcolor="lightblue">
+				<td>Email</td>
+				<td>${email}</td>	
+			</tr>
 		</table>
 </body>
 </html>
