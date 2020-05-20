@@ -15,13 +15,12 @@
 			select * t_member
 		]]>
 	</sql>
+	
 	<select id="memberList" resultMap="memResult">
 		<![CDATA[
 			select * from t_member 
 			order by joinDate
-		
 		]]>
-		
 	</select>
 
 

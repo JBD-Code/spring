@@ -34,5 +34,6 @@
 	    </tr>
 	  </c:forEach>   
 	</table>
+	<h3 style="text-align:center"><a href="${contextPath}/member/memberForm.do">Member Sign Up</a></h3>
 </body>
 </html>>

@@ -33,12 +33,20 @@ public class MemberControllerImpl implements MemberController{
 	@RequestMapping(value = "/member/memberList.do" , method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView memberList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = getViewName(request);
+		System.out.println("viewName =" + viewName);
 		ModelAndView mav = new ModelAndView(viewName);
 		List memberList = memberService.memberList();
 		mav.addObject("memberList", memberList);
 		return mav;
 	}
-	
+	@RequestMapping(value="/member/memberForm.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView memberForm(HttpServletRequest request, HttpServletResponse response)throws Exception {
+		String viewName = getViewName(request);
+		System.out.println("viewName =" + viewName);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(viewName);
+		return mav;
+	}
 	
 	
 	private String getViewName(HttpServletRequest request) throws Exception {
