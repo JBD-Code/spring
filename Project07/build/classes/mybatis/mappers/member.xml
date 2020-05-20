@@ -39,5 +39,11 @@
 		]]>
 	</delete>
 
+	<select id="memberSelect" parameterType="String" resultMap="memResult">
+		<![CDATA[
+			select * from t_member 
+			where id = #{id}
+		]]>
+	</select>
 
 </mapper>   

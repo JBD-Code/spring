@@ -14,6 +14,7 @@ public class MemberDAOImpl implements MemberDAO{
 	
 	@Autowired
 	private SqlSession sqlSession;
+	
 
 	/*
 	 public void setSqlSession(SqlSession sqlSession) { 
@@ -51,6 +52,14 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		sqlSession.delete("mapper.member.memberDelete", id);
 	}
+
+	@Override
+	public MemberVO selectMember(String id) throws DataAccessException {
+		MemberVO memberVO = new MemberVO(); 
+		memberVO= (MemberVO) sqlSession.selectOne("mapper.member.memberSelect", id);
+		return memberVO;
+	}
+	
 	
 	
 	

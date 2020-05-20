@@ -93,6 +93,20 @@ public class MemberControllerImpl implements MemberController{
 		System.out.println("mav = "+ mav);
 		return mav;
 	}
+	
+	@RequestMapping(value="member/memberInfo.do", method = {RequestMethod.POST, RequestMethod.GET})
+	@Override
+	public ModelAndView memberInfo(@ModelAttribute("member") MemberVO memberVO, 
+								   @RequestParam("id") String id, 
+								   HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = getViewName(request);
+		memberVO = memberService.memberInfo(id);
+		System.out.println(id);
+		ModelAndView mav = new ModelAndView(viewName);
+		mav.addObject("member", memberVO);
+		System.out.println("mav = "+ mav);
+		return mav;
+	}
 	private String getViewName(HttpServletRequest request) throws Exception {
 		
 		String contextPath = request.getContextPath();

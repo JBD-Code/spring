@@ -15,4 +15,8 @@ public interface MemberController {
 	public ModelAndView memberList(HttpServletRequest request, HttpServletResponse response) throws Exception ;
 	public ModelAndView memberInsert(@ModelAttribute("member") MemberVO memberVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView memberDelete(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	//public ModelAndView memberUpdate(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response )throws Exception;
+	public ModelAndView memberInfo(@ModelAttribute("member")MemberVO memberVO,
+								   @RequestParam("id") String id, 
+								   HttpServletRequest request, HttpServletResponse response )throws Exception;
 }

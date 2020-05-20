@@ -42,6 +42,16 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.deleteMember(id);
 		
 	}
+
+	@Override
+	public MemberVO memberInfo(String id) throws DataAccessException {
+		// TODO Auto-generated method stub
+		MemberVO memberVO = new MemberVO();
+		memberVO=memberDAO.selectMember(id);
+		return memberVO;
+	}
+	
+	
 	
 	
 	

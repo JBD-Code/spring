@@ -31,7 +31,7 @@
 	      <td>${member.name}</td>
 	      <td>${member.email}</td>
 	      <td>${member.joinDate}</td>
-	      <td><a href="${contextPath}/member/memberUpdate.do?id=${member.id}">Update</a></td>
+	      <td><a href="${contextPath}/member/memberInfo.do?id=${member.id}">Update</a></td>
 	      <td><a href="${contextPath}/member/memberDelete.do?id=${member.id}">Delete</a></td>
 	    </tr>
 	  </c:forEach>   
