@@ -31,7 +31,13 @@
 		]]>
 	</insert>	
 
-
+	<delete id="memberDelete" parameterType="String">
+		<![CDATA[
+			delete from t_member 
+			where 
+			id=#{id}
+		]]>
+	</delete>
 
 
 </mapper>   

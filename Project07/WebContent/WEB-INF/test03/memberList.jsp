@@ -20,6 +20,8 @@
 	      <td><b>Name</b></td>
 	      <td><b>E-Mail</b></td>
 	      <td><b>JoinDate</b></td>
+	      <td><b>Update</b></td>
+	      <td><b>Delete</b></td>
 	   </tr>
 	   
 	 <c:forEach var="member" items="${memberList}" >     
@@ -29,6 +31,8 @@
 	      <td>${member.name}</td>
 	      <td>${member.email}</td>
 	      <td>${member.joinDate}</td>
+	      <td><a href="${contextPath}/member/memberUpdate.do?id=${member.id}">Update</a></td>
+	      <td><a href="${contextPath}/member/memberDelete.do?id=${member.id}">Delete</a></td>
 	    </tr>
 	  </c:forEach>   
 	</table>

@@ -36,6 +36,14 @@ public class MemberServiceImpl implements MemberService {
 		
 		memberDAO.insertMember(memberVO);
 	}
+
+	@Override
+	public void memberDelete(String id) throws DataAccessException {
+		memberDAO.deleteMember(id);
+		
+	}
+	
+	
 	
 	
 

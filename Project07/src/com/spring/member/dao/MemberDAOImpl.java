@@ -45,6 +45,13 @@ public class MemberDAOImpl implements MemberDAO{
 		}
 		
 	}
+
+	@Override
+	public void deleteMember(String id) throws DataAccessException {
+		
+		sqlSession.delete("mapper.member.memberDelete", id);
+	}
+	
 	
 	
 	

@@ -33,7 +33,7 @@ public class MemberControllerImpl implements MemberController{
 	 */
 
 	@Override
-	@RequestMapping(value = "/member/memberList.do" , method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/member/memberList.do" , method= {RequestMethod.GET})
 	public ModelAndView memberList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = getViewName(request);
 		System.out.println("viewName =" + viewName);
@@ -46,9 +46,9 @@ public class MemberControllerImpl implements MemberController{
 	public ModelAndView memberForm(HttpServletRequest request, HttpServletResponse response)throws Exception {
 		request.setCharacterEncoding("UTF-8");
 		String viewName = getViewName(request);
-		System.out.println("viewName =" + viewName);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
+		System.out.println("mav = "+ mav);
 		return mav;
 	}
 
@@ -69,16 +69,26 @@ public class MemberControllerImpl implements MemberController{
 	
 	@RequestMapping(value="/member/memberInsert.do", method={RequestMethod.POST, RequestMethod.GET})
 	@Override
-	
 	public ModelAndView memberInsert(@ModelAttribute("member") MemberVO memberVO,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		request.setCharacterEncoding("UTF-8");
-		System.out.println("Name = " + memberVO.getName());
-		System.out.println("PWD = "+ memberVO.getPwd());
 	
 		memberService.memberInsert(memberVO);
 		
+		ModelAndView mav = new ModelAndView("redirect:/member/memberList.do");
+		System.out.println("mav = "+ mav);
+		return mav;
+	}
+	
+	
+	@RequestMapping(value="/member/memberDelete.do", method = {RequestMethod.POST, RequestMethod.GET})
+	@Override
+	public ModelAndView memberDelete(String id, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		request.setCharacterEncoding("UTF-8");
+		
+		memberService.memberDelete(id);
 		ModelAndView mav = new ModelAndView("redirect:/member/memberList.do");
 		System.out.println("mav = "+ mav);
 		return mav;
