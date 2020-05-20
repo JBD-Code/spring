@@ -22,8 +22,14 @@
 			order by joinDate
 		]]>
 	</select>
-
-
+	
+	<insert id="memberInsert" parameterType="memberVO">
+		
+		<![CDATA[
+			insert into t_member(id,pwd,name,email)
+			values(#{id},#{pwd},#{name},#{email})
+		]]>
+	</insert>	
 
 
 

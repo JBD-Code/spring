@@ -1,5 +1,6 @@
 package com.spring.member.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,8 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.member.service.MemberService;
@@ -41,14 +44,45 @@ public class MemberControllerImpl implements MemberController{
 	}
 	@RequestMapping(value="/member/memberForm.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView memberForm(HttpServletRequest request, HttpServletResponse response)throws Exception {
+		request.setCharacterEncoding("UTF-8");
 		String viewName = getViewName(request);
 		System.out.println("viewName =" + viewName);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
 		return mav;
 	}
+
+	/*
+	@RequestMapping(value="/member/memberInsert.do", method={RequestMethod.POST, RequestMethod.GET})
+	@Override
+	
+	public ModelAndView memberInsert(@RequestParam("id")String id,
+	   				  				 @RequestParam("pwd")String pwd,
+								 	 @RequestParam("name")String name,
+									 @RequestParam("email")String email,
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		return null;
+	}
+	*/
 	
 	
+	@RequestMapping(value="/member/memberInsert.do", method={RequestMethod.POST, RequestMethod.GET})
+	@Override
+	
+	public ModelAndView memberInsert(@ModelAttribute("member") MemberVO memberVO,
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		request.setCharacterEncoding("UTF-8");
+		System.out.println("Name = " + memberVO.getName());
+		System.out.println("PWD = "+ memberVO.getPwd());
+	
+		memberService.memberInsert(memberVO);
+		
+		ModelAndView mav = new ModelAndView("redirect:/member/memberList.do");
+		System.out.println("mav = "+ mav);
+		return mav;
+	}
 	private String getViewName(HttpServletRequest request) throws Exception {
 		
 		String contextPath = request.getContextPath();

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.member.dao.MemberDAO;
+import com.spring.member.vo.MemberVO;
 
 
 @Service("memberService")
@@ -29,6 +30,14 @@ public class MemberServiceImpl implements MemberService {
 		list = memberDAO.listMember();
 		return list;
 	}
+
+	@Override
+	public void memberInsert(MemberVO memberVO) throws DataAccessException {
+		
+		memberDAO.insertMember(memberVO);
+	}
+	
+	
 
 	
 
