@@ -22,8 +22,6 @@
 	      <td><b>Name</b></td>
 	      <td><b>E-Mail</b></td>
 	      <td><b>JoinDate</b></td>
-	      <td><b>Update</b></td>
-	      <td><b>Delete</b></td>
 	   </tr>
 	   
 	 <c:forEach var="member" items="${memberList}" >     
@@ -33,31 +31,8 @@
 	      <td>${member.name}</td>
 	      <td>${member.email}</td>
 	      <td>${member.joinDate}</td>
-	      <td><a href="${contextPath}/member/memberInfo.do?id=${member.id}">Update</a></td>
-	      <td><a href="${contextPath}/member/memberDelete.do?id=${member.id}">Delete</a></td>
 	    </tr>
 	  </c:forEach>   
 	</table>
-	<h3 style="text-align:center"><a href="${contextPath}/member/memberForm.do">Member Sign Up</a></h3>
-	<form action="${contextPath}/member/memberSearch.do"> 
-		<h4 style="text-align:center">Member Search</h4>
-		
-		<table align="center">
-			<tr>
-			<td><input type="text" name="value">
-				<select name="search">
-						<option value="memberList">All</option>
-		 				<option value="memberSearchID">ID</option>
-		 				<option value="memberSearchName">Name</option>
-				</select>
-			</td>
-			</tr>
-			<tr align="center">
-				<td>
-					<input type="submit" value="Search">
-				</td>
-			</tr>  
-		</table>
-	</form>
 </body>
-</html>
+</html>>

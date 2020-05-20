@@ -23,7 +23,8 @@
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- <property name="prefix" value="/WEB-INF/test/"/> -->
 		<!--<property name="prefix" value="/WEB-INF/test/"/>-->
-		<property name="prefix" value="/WEB-INF/test02/"/>
+		<!-- <property name="prefix" value="/WEB-INF/test02/"/> -->
+		<property name="prefix" value="/WEB-INF/test03/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
@@ -34,7 +35,7 @@
 	<context:component-scan base-package="com.spring"/>
 	
 	<!-- 
-		<bean id ="mainontroller"
+		<bean id ="maincontroller"
 			class="com.spring.ex01.MainController">
 		<property name="methodNameResolver">
 			<ref local="methodResolver"/>		
