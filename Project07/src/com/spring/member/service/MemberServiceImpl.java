@@ -7,6 +7,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 
 import com.spring.member.dao.MemberDAO;
 import com.spring.member.vo.MemberVO;
@@ -50,6 +51,13 @@ public class MemberServiceImpl implements MemberService {
 		memberVO=memberDAO.selectMember(id);
 		return memberVO;
 	}
+
+	@Override
+	public void memberUpdate(MemberVO memberVO) throws DataAccessException {
+		memberDAO.updateMember(memberVO);
+		
+	}
+	
 	
 	
 	

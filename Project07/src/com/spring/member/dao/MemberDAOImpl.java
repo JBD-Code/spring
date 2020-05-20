@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 
 import com.spring.member.vo.MemberVO;
 
@@ -59,6 +60,19 @@ public class MemberDAOImpl implements MemberDAO{
 		memberVO= (MemberVO) sqlSession.selectOne("mapper.member.memberSelect", id);
 		return memberVO;
 	}
+
+	@Override
+	public void updateMember(MemberVO memberVO) throws DataAccessException {
+		try {
+			sqlSession.update("mapper.member.memberUpdate", memberVO);
+		} catch (Exception e) {
+			System.out.println("updateMember Method Error " +e);
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 	
 	
 	

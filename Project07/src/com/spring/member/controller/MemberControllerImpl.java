@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -101,9 +102,22 @@ public class MemberControllerImpl implements MemberController{
 								   HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = getViewName(request);
 		memberVO = memberService.memberInfo(id);
-		System.out.println(id);
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("member", memberVO);
+		System.out.println("mav = "+ mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/member/memberUpdate.do", method={RequestMethod.POST, RequestMethod.GET})
+	@Override
+	public ModelAndView memberUpdate(@ModelAttribute("member") MemberVO memberVO, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+
+
+		memberService.memberUpdate(memberVO);
+		
+		ModelAndView mav = new ModelAndView("redirect:/member/memberList.do");
+		
 		System.out.println("mav = "+ mav);
 		return mav;
 	}
