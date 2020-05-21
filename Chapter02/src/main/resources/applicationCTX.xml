@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN/EN"
+"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+ <beans>
+ 	<bean id="bmiCalculator" class="com.spring.ex01.BmiCalculator">
+ 	
+ 		<property name="lowWeight">
+ 			<value>18.5</value>
+ 		</property>
+	
+		<property name="nomal">
+			<value>23</value>
+		</property>		 	
+	
+		<property name="overWeight"> 	
+			<value>25</value> 	
+		</property>
+	
+	 	<property name="obesity">
+			<value>30</value>
+		</property>
+			
+ 	</bean>
+ 	
+	<bean id="myInfo" class="com.spring.ex01.MyInfo">
+		<property name="name">
+			<value>관리자</value>
+		</property>
+		<property name="height">
+			<value>188.9</value>
+		</property>
+		<property name="weight">
+			<value>97</value>
+		</property>
+		<property name="hobbys">
+			<list>
+				<value>Swimming</value>
+				<value>Hiking</value>
+				<value>Soccer</value>
+			</list>
+		</property>
+		<property name="bmiCalculator">
+			<ref bean="bmiCalculator"/>
+		
+		</property>
+	</bean> 
+	 
+ 
+ 
+ 
+ </beans>
