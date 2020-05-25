@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="student2" class="com.spring.ex01.Student">
+	
+		<constructor-arg value="Student2"/>
+		<constructor-arg value="21"/>
+		<constructor-arg>
+			<list>
+				<value>Movie</value>
+				<value>Soccer</value>
+			</list>
+		</constructor-arg>
+		<property name="weight" value="59.4"/>
+		<property name="height" value="148.3"></property>	
+	
+	</bean>
+
+</beans>
