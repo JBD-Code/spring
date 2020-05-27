@@ -3,6 +3,7 @@ package com.spring.ex01;
 import java.io.IOException;
 
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MutablePropertySources;
@@ -10,7 +11,7 @@ import org.springframework.core.io.support.ResourcePropertySource;
 
 public class Main {
 	public static void main(String[] args) {
-		
+	/*	
 		ConfigurableApplicationContext ctx = new GenericXmlApplicationContext();
 		ConfigurableEnvironment env = ctx.getEnvironment();
 		
@@ -34,5 +35,20 @@ public class Main {
 		
 		gCtx.close();
 		ctx.close();
+	
+	*/
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:applicationCTX.xml");
+		
+		AdminConnection adminCon = ctx.getBean("adminConnection", AdminConnection.class);
+		System.out.println("admin id : " + adminCon.getId());
+		System.out.println("admin password : " + adminCon.getPwd());
+		System.out.println("admin Sub_id : " + adminCon.getSub_id());
+		System.out.println("admin Sub_pwd : " + adminCon.getSub_pwd());
+	
+		ctx.close();
+		
+		
+		
+		
 	}
 }

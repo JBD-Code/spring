@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
-	<bean id="adminConnection" class="com.spring.ex01.AdminConnection">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd"> 
 	
+	<context:property-placeholder location="classpath:admin.properties,admin2.properties"/>
+	
+	<bean id="adminConnection" class="com.spring.ex01.AdminConnection">
+		<property name="id">
+			<value>${admin.id}</value>
+		</property>
+		<property name="pwd">
+			<value>${admin.pwd}</value>
+		</property>
+		<property name="sub_id">
+			<value>${admin.sub_id}</value>
+		</property>
+		<property name="sub_pwd">
+			<value>${admin.sub_pwd}</value>
+		</property>
 	
 	</bean>
 
