@@ -6,7 +6,7 @@ public class boardContentImpl implements BoardCommand {
 
 	@Override
 	public void execute(Model model) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

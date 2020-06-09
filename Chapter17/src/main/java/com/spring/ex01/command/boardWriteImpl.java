@@ -17,13 +17,14 @@ public class boardWriteImpl implements BoardCommand {
 	public void execute(Model model) {
 		Map<String, Object>map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		int id = Integer.parseInt(request.getParameter("id"));
+		int idx=0;
+		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content"); 
 		Date writeDate = new Date(System.currentTimeMillis());
 		dao = new BoardDAO(); 
-		dao.insert(id, name, title, content, writeDate);
+		dao.insert(idx, id, name, title, content, writeDate);
 	}
 
 	

@@ -56,7 +56,8 @@ public class BoardDAO {
 			
 			while(rs.next()) {
 				BoardDTO dto = new BoardDTO();
-				dto.setId(rs.getInt("id"));
+				dto.setIdx(rs.getInt("idx"));
+				dto.setId(rs.getString("id"));
 				dto.setName(rs.getString("name"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
@@ -77,18 +78,20 @@ public class BoardDAO {
 		return lists; 
 	}
 
-	public void insert(int id, String name, String title, String content, Date writeDate) {
+	public void insert(int idx, String id, String name, String title, String content, Date writeDate) {
 		
+		idx = idxCount(idx);
 		try {
 			conn = getConnection();
-			sql = "insert into board(id, name, title, content, writeDate)"
-					+ " values(?,?,?,?,?)";
+			sql = "insert into board(idx, id, name, title, content, writeDate)"
+					+ " values(?,?,?,?,?,?)";
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, id);
-			pstmt.setString(2, name);
-			pstmt.setString(3, title);
-			pstmt.setString(4, content);
-			pstmt.setDate(5, writeDate);
+			pstmt.setInt(1, idx);
+			pstmt.setString(2, id);
+			pstmt.setString(3, name);
+			pstmt.setString(4, title);
+			pstmt.setString(5, content);
+			pstmt.setDate(6, writeDate);
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -101,6 +104,24 @@ public class BoardDAO {
 		
 	}
 	
-	
+	public int idxCount(int idx) {
+		
+		try {
+			conn=getConnection();
+			sql= "select count(*) count from board";
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery(); 
+			while(rs.next()) {
+				idx = rs.getInt("count");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("idxCout Error" +e);
+			
+			e.printStackTrace();
+		} 
+		return idx+1;
+	}
+
 	
 }

@@ -3,7 +3,8 @@ package com.spring.ex01.dto;
 import java.sql.Date;
 
 public class BoardDTO {
-	private int id; 
+	private int idx;
+	private String id; 
 	private String name; 
 	private String title; 
 	private String content; 
@@ -15,8 +16,8 @@ public class BoardDTO {
 	
 	public BoardDTO() {}
 
-	public BoardDTO(int id, String name, String title, String content, int readCount ,int bGroup, int bStep, int bIndent) {
-	
+	public BoardDTO(int idx, String id, String name, String title, String content, int readCount ,int bGroup, int bStep, int bIndent) {
+		this.idx = idx; 
 		this.id = id;
 		this.name = name;
 		this.title = title;
@@ -26,12 +27,21 @@ public class BoardDTO {
 		this.bStep = bStep;
 		this.bIndent = bIndent;
 	}
+	
+	
 
-	public int getId() {
+	public int getIdx() {
+		return idx;
+	}
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

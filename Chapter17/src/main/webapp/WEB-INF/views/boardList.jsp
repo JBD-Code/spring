@@ -14,6 +14,7 @@
 	<h3 style="text-align:center">BoardList</h3> 
 	<table border ="1" align="center"> 
 		<tr align="center" bgcolor="lightgreen">
+			<td width="20%"><b>Index</b></td>
 			<td width="20%"><b>ID</b></td>
 			<td width="20%"><b>Name</b></td>
 			<td width="20%"><b>Title</b></td>
@@ -30,6 +31,7 @@
 				<c:when test="${list!=null }">
 					<c:forEach items="${list}" var="list">
 						<tr align="center" >
+						<td>${list.idx} </td> 
 						<td>${list.id} </td> 
 						<td>${list.name} </td> 
 						<td><a href="${contexrtPath}/boardContent?id=${list.id}">${list.title}</a></td> 
