@@ -1,11 +1,19 @@
 package com.spring.ex01.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.spring.ex01.command.BoardCommand;
+import com.spring.ex01.command.boardContentImpl;
 import com.spring.ex01.command.boardListImpl;
+import com.spring.ex01.command.boardModifyImpl;
+import com.spring.ex01.command.boardWriteImpl;
+import com.spring.ex01.command.replyViewImpl;
+import com.spring.ex01.command.replyWriteImpl;
 
 @Controller
 public class BoardController {
@@ -18,5 +26,55 @@ public class BoardController {
 		command.execute(model);
 		
 		return "boardList"; 
+	}
+	@RequestMapping(value= "/boardWriteForm")
+	public String boardForm(Model model) {
+		System.out.println("WriteForm");
+		
+		return "boardWrite";
+	}
+	@RequestMapping(value="/boardWrite", method = RequestMethod.POST)
+	public String boardWrite(HttpServletRequest request, Model model) {
+		System.out.println("Write");
+		model.addAttribute("request", request);
+		command = new boardWriteImpl();
+		command.execute(model);
+		return "boardList"; 
+	}
+	@RequestMapping(value="/boardContent", method = RequestMethod.POST)
+	public String boardContent(HttpServletRequest request, Model model) {
+		System.out.println("boardContent");
+		model.addAttribute("request", request);
+		command = new boardContentImpl();
+		command.execute(model);
+		return "boardContent"; 
+	}
+	@RequestMapping(value="/boardModify", method = RequestMethod.POST)
+	public String boardModify(HttpServletRequest request, Model model) {
+		System.out.println("boardModify");
+		model.addAttribute("request", request);
+		command= new boardModifyImpl(); 
+		command.execute(model);
+		
+		return "boardModify";
+	}
+	@RequestMapping(value="/boardReplyView", method = RequestMethod.POST)
+	public String boardReplyView(HttpServletRequest request, Model model) {
+		System.out.println("boardReplyView");
+		model.addAttribute("request", request);
+		command= new replyViewImpl(); 
+		command.execute(model);
+		
+		return "boardReplyView";
+	}
+	
+	@RequestMapping(value="/boardReplyWrite", method = RequestMethod.POST)
+	public String boardReplyWrite(HttpServletRequest request, Model model) {
+		System.out.println("boardReplyWrite");
+		model.addAttribute("request", request);
+		command= new replyWriteImpl(); 
+		command.execute(model);
+		
+		return "redirect:boardList";
 	}
 }

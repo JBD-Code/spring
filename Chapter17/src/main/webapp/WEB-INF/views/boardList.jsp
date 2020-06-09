@@ -13,24 +13,24 @@
 <body>
 	<h3 style="text-align:center">BoardList</h3> 
 	<table border ="1" align="center"> 
-		<tr align="center">
-			<td width="20%">ID</td>
-			<td width="20%">Name</td>
-			<td width="20%">Title</td>
-			<td width="30%">WriteDate</td>
-			<td width="20%">ReadCount</td>
+		<tr align="center" bgcolor="lightgreen">
+			<td width="20%"><b>ID</b></td>
+			<td width="20%"><b>Name</b></td>
+			<td width="20%"><b>Title</b></td>
+			<td width="30%"><b>WriteDate</b></td>
+			<td width="20%"><b>ReadCount</b></td>
 		</tr>
 		
 		<c:choose>
 			<c:when test="${list == null }">
-				<tr>
+				<tr bgcolor="lightgreen">
 					<td colspan = "3">등록된 글이 없습니다 </td> 
 				</tr>
 			</c:when>
 				<c:when test="${list!=null }">
 					<c:forEach items="${list}" var="list">
-						<tr align="center">
-						<td>${list.id} </td> 
+						<tr align="center" >
+						<td><a href="${contextPath}/boardContent"></a>${list.id} </td> 
 						<td>${list.name} </td> 
 						<td>${list.title} </td> 
 						<td>${list.writeDate} </td> 
@@ -40,6 +40,9 @@
 			</c:when>
 		</c:choose>	
 	</table>
+	<div style="text-align:center">
+		<a href="${contextPath}/boardWriteForm">Board Write</a>
+	</div>
 
 </body>
 </html>
