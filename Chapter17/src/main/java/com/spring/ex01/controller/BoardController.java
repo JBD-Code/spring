@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.spring.ex01.command.BoardCommand;
 import com.spring.ex01.command.boardContentImpl;
+import com.spring.ex01.command.boardDeleteImpl;
 import com.spring.ex01.command.boardListImpl;
 import com.spring.ex01.command.boardModifyImpl;
 import com.spring.ex01.command.boardWriteImpl;
@@ -39,7 +40,7 @@ public class BoardController {
 		model.addAttribute("request", request);
 		command = new boardWriteImpl();
 		command.execute(model);
-		return "boardList"; 
+		return "redirect:boardList"; 
 	}
 	@RequestMapping(value="/boardContent", method = RequestMethod.POST)
 	public String boardContent(HttpServletRequest request, Model model) {
@@ -51,7 +52,7 @@ public class BoardController {
 	}
 	@RequestMapping(value="/boardModify", method = RequestMethod.POST)
 	public String boardModify(HttpServletRequest request, Model model) {
-		System.out.println("boardModify");
+		System.out.println("boardModifyView");
 		model.addAttribute("request", request);
 		command= new boardModifyImpl(); 
 		command.execute(model);
@@ -77,4 +78,14 @@ public class BoardController {
 		
 		return "redirect:boardList";
 	}
+	@RequestMapping(value="/boardReplyDelete", method = RequestMethod.POST)
+	public String boardDelte(HttpServletRequest request, Model model) {
+		System.out.println("boardDelete");
+		model.addAttribute("request", request);
+		command= new boardDeleteImpl(); 
+		command.execute(model);
+		
+		return "redirect:boardList";
+	}
 }
+ 

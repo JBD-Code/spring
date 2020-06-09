@@ -23,16 +23,16 @@
 		
 		<c:choose>
 			<c:when test="${list == null }">
-				<tr bgcolor="lightgreen">
-					<td colspan = "3">등록된 글이 없습니다 </td> 
+				<tr bgcolor="lightblue" align="center">
+					<td colspan = "5">등록된 글이 없습니다 </td> 
 				</tr>
 			</c:when>
 				<c:when test="${list!=null }">
 					<c:forEach items="${list}" var="list">
 						<tr align="center" >
-						<td><a href="${contextPath}/boardContent"></a>${list.id} </td> 
+						<td>${list.id} </td> 
 						<td>${list.name} </td> 
-						<td>${list.title} </td> 
+						<td><a href="${contexrtPath}/boardContent?id=${list.id}">${list.title}</a></td> 
 						<td>${list.writeDate} </td> 
 						<td>${list.readCount} </td> 
 						</tr>

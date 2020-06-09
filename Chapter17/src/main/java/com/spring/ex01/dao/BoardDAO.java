@@ -1,6 +1,7 @@
 package com.spring.ex01.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -74,6 +75,30 @@ public class BoardDAO {
 		} 
 		
 		return lists; 
+	}
+
+	public void insert(int id, String name, String title, String content, Date writeDate) {
+		
+		try {
+			conn = getConnection();
+			sql = "insert into board(id, name, title, content, writeDate)"
+					+ " values(?,?,?,?,?)";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			pstmt.setString(2, name);
+			pstmt.setString(3, title);
+			pstmt.setString(4, content);
+			pstmt.setDate(5, writeDate);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("insert Method Error" +e);
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		
 	}
 	
 	
