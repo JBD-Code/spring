@@ -32,8 +32,8 @@
 			</tr>
 			<tr>
 			<tr align="center" >	
-				<td><input type="submit" value="Write"></td>		
-				<td><input type="reset" value="reset"></td>		
+				 <td colspan="2"><input type="submit" value="Write">		
+				<input type="reset" value="reset"></td>		
 		</table>	
 	</form>
 	<div style="text-align:center">

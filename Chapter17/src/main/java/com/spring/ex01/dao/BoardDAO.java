@@ -125,6 +125,7 @@ public class BoardDAO {
 
 	public BoardDTO select(int idx) {
 		BoardDTO dto = new BoardDTO(); 
+		readCount(idx);
 		
 		try {
 			conn = getConnection();
@@ -172,4 +173,40 @@ public class BoardDAO {
 		}
 		
 	}
+	
+	public void readCount(int idx) {
+		
+		try {
+			conn=getConnection();
+			sql = "update board set readCount=readCount+1 where idx=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("readCount Error" +e);
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+
+	}
+
+	public void delete(int idx) {
+		try {
+			conn=getConnection();
+			sql = "delete from board where idx = ?"; 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("delte Method Error" +e);
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+	}
+	
+	
+	
 }

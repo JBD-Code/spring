@@ -79,6 +79,15 @@ public class BoardController {
 		return "redirect:boardList";
 	}
 	@RequestMapping(value="/boardReplyDelete", method = RequestMethod.POST)
+	public String boardReplyDelte(HttpServletRequest request, Model model) {
+		System.out.println("boardReplyDelete");
+		model.addAttribute("request", request);
+		command= new boardDeleteImpl(); 
+		command.execute(model);
+		
+		return "redirect:boardList";
+	}
+	@RequestMapping(value="/boardDelete", method = {RequestMethod.POST, RequestMethod.GET})
 	public String boardDelte(HttpServletRequest request, Model model) {
 		System.out.println("boardDelete");
 		model.addAttribute("request", request);

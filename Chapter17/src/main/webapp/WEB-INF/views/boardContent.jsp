@@ -39,7 +39,7 @@
 			<tr align="center" >	
 				<td colspan="2"><input type="submit" value="Write">
 				<input type="reset" value="reset">
-				<input type="button" value="delete" onclick="${contextPath}/boardDelete?idx=${dto.idx}">
+				<input type="button" value="delete" onclick="location.href='${contextPath}/boardDelete?idx=${dto.idx}'">
 				</td>		
 		</table>	
 	</form>
