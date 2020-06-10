@@ -57,7 +57,7 @@ public class BoardController {
 		command= new boardModifyImpl(); 
 		command.execute(model);
 		
-		return "boardModify";
+		return "redirect:boardList";
 	}
 	@RequestMapping(value="/boardReplyView", method = RequestMethod.POST)
 	public String boardReplyView(HttpServletRequest request, Model model) {

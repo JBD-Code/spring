@@ -153,8 +153,23 @@ public class BoardDAO {
 		return dto; 
 	}
 
-	public void modify(String id, String name, String title, String content) {
-		// TODO Auto-generated method stub
+	public void modify(int idx, String name, String title, String content) {
+		
+		try {
+			conn=getConnection();
+			sql= "update board set name=?, title=?, content=? where idx=?"; 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, title);
+			pstmt.setString(3, content);
+			pstmt.setInt(4, idx);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("modify Method Error" +e);
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
 		
 	}
 }

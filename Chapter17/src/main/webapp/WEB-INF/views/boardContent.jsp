@@ -16,7 +16,7 @@
 		<table align="center" border="1">
 			<tr align="center" >
 				<td width="10%" bgcolor="lightblue"><b>Index</b></td>
-				<td align="left" ><input type="text" name="id" value="${dto.idx}"></td>
+				<td align="left" ><input type="text" name="idx" value="${dto.idx}"></td>
 			</tr>
 			<tr align="center">
 				<td width="5%" bgcolor="lightblue"><b>ID</b></td>
@@ -32,7 +32,7 @@
 			</tr>
 			<tr align="center" >	
 				<td bgcolor="lightblue"><b>Content</b></td>
-				<td><textarea rows="30" cols="80" name="content" value="${dto.content}"></textarea>
+				<td><textarea rows="30" cols="80" name="content" >${dto.content}</textarea>
 				</td>
 			</tr>
 			
