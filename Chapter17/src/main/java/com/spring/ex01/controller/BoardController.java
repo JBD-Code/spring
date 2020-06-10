@@ -42,7 +42,7 @@ public class BoardController {
 		command.execute(model);
 		return "redirect:boardList"; 
 	}
-	@RequestMapping(value="/boardContent", method = RequestMethod.POST)
+	@RequestMapping(value="/boardContent", method = {RequestMethod.POST, RequestMethod.GET})
 	public String boardContent(HttpServletRequest request, Model model) {
 		System.out.println("boardContent");
 		model.addAttribute("request", request);
@@ -52,7 +52,7 @@ public class BoardController {
 	}
 	@RequestMapping(value="/boardModify", method = RequestMethod.POST)
 	public String boardModify(HttpServletRequest request, Model model) {
-		System.out.println("boardModifyView");
+		System.out.println("boardModify");
 		model.addAttribute("request", request);
 		command= new boardModifyImpl(); 
 		command.execute(model);

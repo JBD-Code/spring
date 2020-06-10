@@ -123,5 +123,38 @@ public class BoardDAO {
 		return idx+1;
 	}
 
-	
+	public BoardDTO select(int idx) {
+		BoardDTO dto = new BoardDTO(); 
+		
+		try {
+			conn = getConnection();
+			sql= "select * from board where idx=?"; 
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setInt(1, idx);
+			rs = pstmt.executeQuery(); 
+			while(rs.next()) {
+				dto.setIdx(rs.getInt("idx"));
+				dto.setId(rs.getString("id"));
+				dto.setName(rs.getString("name"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setWriteDate(rs.getDate("writeDate"));
+				dto.setReadCount(rs.getInt("readCount"));
+			}
+			
+		} catch (Exception e) {
+			System.out.println("select Method Error" +e);
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		// TODO Auto-generated method stub
+		return dto; 
+	}
+
+	public void modify(String id, String name, String title, String content) {
+		// TODO Auto-generated method stub
+		
+	}
 }

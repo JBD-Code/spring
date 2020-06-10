@@ -31,10 +31,10 @@
 				<c:when test="${list!=null }">
 					<c:forEach items="${list}" var="list">
 						<tr align="center" >
-						<td>${list.idx} </td> 
+						<td><a href="${contextPath}/boardContent?idx=${list.idx}">${list.idx}</a></td> 
 						<td>${list.id} </td> 
 						<td>${list.name} </td> 
-						<td><a href="${contexrtPath}/boardContent?id=${list.id}">${list.title}</a></td> 
+						<td>${list.title}</td> 
 						<td>${list.writeDate} </td> 
 						<td>${list.readCount} </td> 
 						</tr>
