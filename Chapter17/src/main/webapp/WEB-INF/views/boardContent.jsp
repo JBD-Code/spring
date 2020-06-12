@@ -47,10 +47,6 @@
 		<form action="${contextPath}/boardReplyWrite" method="post">
 		<table align="center" border="1">
 			<tr><input type="hidden" value="${dto.idx}" name="bgroup"></tr>
-			<tr align="center" >
-				<td width="5%" bgcolor="lightblue"><b>Index</b></td>
-				<td align="left" ><input type="text" name="idx"></td>
-			</tr>
 			<tr align="center">
 				<td width="5%" bgcolor="lightblue"><b>ID</b></td>
 				<td align="left"><input type="text" name="id"></td>
@@ -61,7 +57,7 @@
 			</tr>
 			<tr align="center" >	
 				<td bgcolor="lightblue"><b>Title</b></td>
-				<td align="left"><input type="text" name="title"></td>
+				<td align="left"><input type="text" name="title" value="${dto.title}" readonly="readonly"></td>
 			</tr>
 			<tr align="center" >	
 				<td bgcolor="lightblue"><b>Content</b></td>
