@@ -50,12 +50,19 @@ public class BoardDAO {
 		List<BoardDTO>lists = new ArrayList<BoardDTO>();
 		try {
 			conn=getConnection();
-			sql ="select * from board order by idx desc"; 
+			//sql ="select * from board order by idx desc"; 
+			sql ="select level, idx, bgroup, title, content, id, name, writeDate, bStep, bIndent, readCount"
+					+ " from board "
+					+ " start with bgroup=0"
+					+ " connect by prior idx=bgroup"
+					+ " order siblings by idx desc";
+			
 			pstmt= conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			
 			while(rs.next()) {
 				BoardDTO dto = new BoardDTO();
+				dto.setLevel(rs.getInt("level"));
 				dto.setIdx(rs.getInt("idx"));
 				dto.setId(rs.getString("id"));
 				dto.setName(rs.getString("name"));
@@ -69,6 +76,7 @@ public class BoardDAO {
 				lists.add(dto);
 			}
 		} catch (Exception e) {
+			System.out.println("list Method Error" +e);
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
