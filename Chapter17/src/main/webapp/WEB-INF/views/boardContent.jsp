@@ -23,7 +23,7 @@
 				<td align="left"><input type="text" name="id" value="${dto.id}"></td>
 			</tr>
 			<tr align="center" >	
-				<td width="15" bgcolor="lightblue"><b>Name</b></td>
+				<td width="15%" bgcolor="lightblue"><b>Name</b></td>
 				<td align="left" colspan="3"><input type="text" name="name" value="${dto.name}"></td>
 			</tr>
 			<tr align="center" >	
@@ -40,6 +40,38 @@
 				<td colspan="2"><input type="submit" value="Write">
 				<input type="reset" value="reset">
 				<input type="button" value="delete" onclick="location.href='${contextPath}/boardDelete?idx=${dto.idx}'">
+				</td>		
+		</table>	
+	</form>
+	<h3 style="text-align:center">BoardReply Form</h3> 
+		<form action="${contextPath}/boardReplyWrite" method="post">
+		<table align="center" border="1">
+			<tr><input type="hidden" value="${dto.idx}" name="bgroup"></tr>
+			<tr align="center" >
+				<td width="5%" bgcolor="lightblue"><b>Index</b></td>
+				<td align="left" ><input type="text" name="idx"></td>
+			</tr>
+			<tr align="center">
+				<td width="5%" bgcolor="lightblue"><b>ID</b></td>
+				<td align="left"><input type="text" name="id"></td>
+			</tr>
+			<tr align="center" >	
+				<td width="10%" bgcolor="lightblue"><b>Name</b></td>
+				<td align="left" colspan="3"><input type="text" name="name"></td>
+			</tr>
+			<tr align="center" >	
+				<td bgcolor="lightblue"><b>Title</b></td>
+				<td align="left"><input type="text" name="title"></td>
+			</tr>
+			<tr align="center" >	
+				<td bgcolor="lightblue"><b>Content</b></td>
+				<td><textarea rows="15" cols="40" name="content" ></textarea>
+				</td>
+			</tr>
+				
+			<tr align="center" >	
+				<td colspan="2"><input type="submit" value="Write">
+				<input type="reset" value="reset">
 				</td>		
 		</table>	
 	</form>

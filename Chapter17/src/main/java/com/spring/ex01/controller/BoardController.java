@@ -59,6 +59,7 @@ public class BoardController {
 		
 		return "redirect:boardList";
 	}
+	/*
 	@RequestMapping(value="/boardReplyView", method = RequestMethod.POST)
 	public String boardReplyView(HttpServletRequest request, Model model) {
 		System.out.println("boardReplyView");
@@ -68,7 +69,7 @@ public class BoardController {
 		
 		return "boardReplyView";
 	}
-	
+	*/
 	@RequestMapping(value="/boardReplyWrite", method = RequestMethod.POST)
 	public String boardReplyWrite(HttpServletRequest request, Model model) {
 		System.out.println("boardReplyWrite");

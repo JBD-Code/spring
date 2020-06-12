@@ -50,7 +50,7 @@ public class BoardDAO {
 		List<BoardDTO>lists = new ArrayList<BoardDTO>();
 		try {
 			conn=getConnection();
-			sql ="select * from board"; 
+			sql ="select * from board order by idx desc"; 
 			pstmt= conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			
@@ -83,8 +83,8 @@ public class BoardDAO {
 		idx = idxCount(idx);
 		try {
 			conn = getConnection();
-			sql = "insert into board(idx, id, name, title, content, writeDate)"
-					+ " values(?,?,?,?,?,?)";
+			sql = "insert into board(idx, id, name, title, content, writeDate, bGroup, bStep, bIndent)"
+					+ " values(?,?,?,?,?,?,?,?,?)";
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			pstmt.setString(2, id);
@@ -92,6 +92,9 @@ public class BoardDAO {
 			pstmt.setString(4, title);
 			pstmt.setString(5, content);
 			pstmt.setDate(6, writeDate);
+			pstmt.setInt(7, 0);
+			pstmt.setInt(8, 0);
+			pstmt.setInt(9, 0);
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -203,6 +206,30 @@ public class BoardDAO {
 			e.printStackTrace();
 		} finally {
 			closeDB();
+		}
+		
+	}
+
+	public void insertReply(int idx, String id, String name, String title, String content, int bgroup,
+			Date writeDate) {
+		idx=idxCount(idx);
+		try {
+			conn=getConnection();
+			sql="insert into board(idx, id, name, title, content, bgroup, writeDate )"
+					+ " values(?,?,?,?,?,?,?)";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			pstmt.setString(2, id);
+			pstmt.setString(3, name);
+			pstmt.setString(4, title);
+			pstmt.setString(5, content);
+			pstmt.setInt(6, bgroup);
+			pstmt.setDate(7, writeDate);
+			pstmt.executeUpdate();
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 	}
