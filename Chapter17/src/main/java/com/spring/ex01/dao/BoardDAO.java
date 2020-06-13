@@ -12,15 +12,26 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import com.spring.ex01.dto.BoardDTO;
+import com.spring.ex01.util.Constant;
 
 public class BoardDAO {
+	
 	
 	
 	private Connection conn; 
 	private PreparedStatement pstmt;
 	private ResultSet rs; 
 	String sql= "" ;
+	JdbcTemplate template  ; 
+	
+	public BoardDAO() {
+		template=Constant.template;
+	}
+	
 	
 	public Connection getConnection () {
 		try {
@@ -45,6 +56,7 @@ public class BoardDAO {
 		}
 	}
 	
+	/*
 	public List<BoardDTO>list() {
 		
 		List<BoardDTO>lists = new ArrayList<BoardDTO>();
@@ -85,7 +97,21 @@ public class BoardDAO {
 		
 		return lists; 
 	}
-
+	*/
+	
+	public List<BoardDTO>list() {
+		List<BoardDTO>lists = new ArrayList<BoardDTO>();
+		
+		sql ="select level, idx, bgroup, title, content, id, name, writeDate, bStep, bIndent, readCount"
+				+ " from board "
+				+ " start with bgroup=0"
+				+ " connect by prior idx=bgroup"
+				+ " order siblings by idx desc";
+		lists  = template.query(sql, new BeanPropertyRowMapper<BoardDTO>(BoardDTO.class));
+	
+		return lists;
+	}	
+	
 	public void insert(int idx, String id, String name, String title, String content, Date writeDate) {
 		
 		idx = idxCount(idx);

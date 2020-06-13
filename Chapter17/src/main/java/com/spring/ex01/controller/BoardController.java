@@ -2,6 +2,8 @@ package com.spring.ex01.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +17,18 @@ import com.spring.ex01.command.boardModifyImpl;
 import com.spring.ex01.command.boardWriteImpl;
 import com.spring.ex01.command.replyViewImpl;
 import com.spring.ex01.command.replyWriteImpl;
+import com.spring.ex01.util.Constant;
 
 @Controller
 public class BoardController {
 	BoardCommand command;
+	JdbcTemplate template ; 
 	
+	@Autowired
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+		Constant.template= this.template;
+	}
 	@RequestMapping(value = "/boardList")
 	public String list(Model model) {
 		System.out.println("List");
