@@ -8,18 +8,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.spring.ex01.dao.TicketDAO;
 import com.spring.ex01.dto.TicketDTO;
+import com.spring.ex01.service.TicketService;
 
 
 @Controller
 public class TicketController {
-	TicketDAO dao; 
+	//private TicketDAO dao; 
+	private TicketService ticketService;
 	
+	
+	/*
 	@Autowired
 	public void setDao(TicketDAO dao) {
 		this.dao = dao;
 	}
+	*/
 	
-	
+	@Autowired
+	public void setTicketService(TicketService ticketService) {
+		this.ticketService = ticketService;
+	}
+
+
+
 	@RequestMapping (value ="/buyTicket")
 	public String buyTicket(Model model) {
 		System.out.println("Buy Ticket");
@@ -34,7 +45,8 @@ public class TicketController {
 		System.out.println(dto.getAmount());
 		System.out.println(dto.getPaymentDate());
 		
-		dao.payTicket(dto);
+		//dao.payTicket(dto);
+		ticketService.execute(dto);
 		model.addAttribute("dto", dto);
 		return "ticketBuy"; 
 		 

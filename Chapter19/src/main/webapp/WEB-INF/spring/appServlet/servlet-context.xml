@@ -37,17 +37,26 @@
 		<beans:property name="dataSource" ref="dataSource"/>
 	</beans:bean>
 
-	<beans:bean name= "transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate"> 
+	<beans:bean name= "transactionTemplate1" class="org.springframework.transaction.support.TransactionTemplate"> 
 		 <beans:property name="transactionManager" ref="transactionManager"/>
+		 <beans:property name="propagationBehavior" value="0"/>	
+	</beans:bean>
 	
+	<beans:bean name= "transactionTemplate2" class="org.springframework.transaction.support.TransactionTemplate"> 
+		 <beans:property name="transactionManager" ref="transactionManager"/>
+		 <beans:property name="propagationBehavior" value="0"/>	
 	</beans:bean>
 	
 	<beans:bean name="dao" class="com.spring.ex01.dao.TicketDAO">
 		<beans:property name="template" ref="template"></beans:property>
-		<beans:property name="transactionTemplate" ref="transactionTemplate"/>	
+		<beans:property name="transactionTemplate1" ref="transactionTemplate1"/>	
 	</beans:bean>
+	
+	<beans:bean name= "ticketServie" class="com.spring.ex01.service.TicketServiceImpl">
+		<beans:property name="ticketDAO" ref="dao"/>
+		<beans:property name="transactionTemplate2" ref="transactionTemplate2"></beans:property>
+	</beans:bean>
+	
 	<context:component-scan base-package="com.spring.ex01" />
-	
-	
 	
 </beans:beans>

@@ -14,14 +14,14 @@ import com.spring.ex01.dto.TicketDTO;
 
 public class TicketDAO {
 	JdbcTemplate template;
-	TransactionTemplate transactionTemplate;
+	TransactionTemplate transactionTemplate1;
 	
 	public void setTemplate(JdbcTemplate template) {
 		this.template = template;
 	}
 	
-	public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
-		this.transactionTemplate = transactionTemplate;
+	public void setTransactionTemplate1(TransactionTemplate transactionTemplate1) {
+		this.transactionTemplate1 = transactionTemplate1;
 	}
 	
 	public TicketDAO() {
@@ -36,7 +36,7 @@ public class TicketDAO {
 		System.out.println(dto.getPaymentDate());
 		
 		
-		transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+		transactionTemplate1.execute(new TransactionCallbackWithoutResult() {
 			
 			@Override
 			protected void doInTransactionWithoutResult(TransactionStatus status) {
@@ -48,14 +48,10 @@ public class TicketDAO {
 						
 						@Override
 						public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-							//String query = "insert into card(consumerID, amount, paymentDate) values(?,?,?)";
 							String query = "insert into card(consumerID, amount) values(?,?)";
 							PreparedStatement pstmt = con.prepareStatement(query);
 							pstmt.setString(1, dto.getConsumerID());
-							//pstmt.setString(1, consumerID);
 							pstmt.setInt(2, dto.getAmount());
-							//pstmt.setDate(3, dto.getPaymentDate());
-							//pstmt.setInt(2, amount);
 							return pstmt ;
 						}
 					});
@@ -65,20 +61,15 @@ public class TicketDAO {
 						
 						@Override
 						public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-							//String query = "insert into ticket(consumerID, amount, paymentDate) values(?,?,?)";
 							String query = "insert into ticket(consumerID, amount) values(?,?)";
 							PreparedStatement pstmt = con.prepareStatement(query);
 							pstmt.setString(1, dto.getConsumerID());
-							//pstmt.setString(1, consumerID);
 							pstmt.setInt(2, dto.getAmount());
-							//pstmt.setDate(3, dto.getPaymentDate());
-							//pstmt.setInt(2, amount);
 							return pstmt ;
 						}
 					});
 					
 						
-					
 					} catch (Exception e) {
 						System.out.println("Transaction Error = " +e);
 						
