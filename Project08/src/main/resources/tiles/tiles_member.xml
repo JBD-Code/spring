@@ -15,6 +15,12 @@
       <put-attribute name="title" value="Main Page" />
       <put-attribute name="body" value="/WEB-INF/views/main.jsp" />
    </definition>
+   
+   
+	 <definition name="/member/memberList" extends="baseLayout">
+      <put-attribute name="title" value="Member List" />
+      <put-attribute name="body" value="/WEB-INF/views/member/memberList.jsp" />
+   </definition>
 	
 </tiles-definitions>
 

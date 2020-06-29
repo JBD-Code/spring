@@ -56,6 +56,9 @@
 		<div id="sidebar-left">
 			<tiles:insertAttribute name="side"/>
 		</div>
+		<div id="content">
+        	  <tiles:insertAttribute name="body"/>
+      	</div>
 		<div id="footer">
 			<tiles:insertAttribute name="footer"/>
 		
