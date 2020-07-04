@@ -1,15 +1,20 @@
 package org.zerock.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.zerock.domain.SampleDTO;
 import org.zerock.domain.SampleDTOList;
+import org.zerock.domain.TodoDTO;
 
 import lombok.extern.log4j.Log4j;
 
@@ -17,7 +22,27 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/sample/*")
 @Log4j
 public class SampleController {
-	//Spring 4.3 version 부터는 @@RequestMapping 을 줄여서 시영한다 
+	
+	/*
+	@InitBinder
+	public void initBindet(WebDataBinder binder ) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		binder.registerCustomEditor(java.util.Date.class , new CustomDateEditor(dateFormat, false));
+	// 화면에서 2020-01-01 과 같이 문자열로 전달된 데이터를 java.util.Date 타입으로 변환할 경우 
+	// @InitBinder 를 이용해서 변환 처리가 가능 
+		
+	}
+	*/
+	@GetMapping("/ex06")
+	public String ex06(TodoDTO todo) {
+		log.info("todo : " + todo);
+		return "ex06";
+	// 만약 브라우저에서 http://localhost:8090/sample/ex06?title=test&dueDate=2020-01-01 과 같이 호출 한다면 	
+	// Console TodoDTO(title=test, dueDate=Wed Jan 01 00:00:00 KST 2020) 출력 
+	}
+	
+	
+	//Spring 4.3 version 부터는 @RequestMapping 을 줄여서 시영한다 
 	//@GetMapping @PostMapping 축약형 표현이 있다 
 	
 	@RequestMapping(value ="/basic", method = {RequestMethod.POST, RequestMethod.GET})
