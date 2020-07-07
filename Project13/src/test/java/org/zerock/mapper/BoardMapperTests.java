@@ -32,4 +32,40 @@ public class BoardMapperTests {
 		mapper.insert(board);
 		log.info(board);
 	}
+	@Test
+	public void testInsertSelectKey() {
+		
+		BoardVO board = new BoardVO(); 
+		board.setTitle("New Title Select Key");
+		board.setContent("New Content Select Key");
+		board.setWriter("New User Select Key");
+		
+		mapper.insertSelectkey(board);
+		log.info(board);
+	}
+	
+	@Test
+	public void testRead() {
+		BoardVO board = mapper.read(2L);
+		log.info(board);
+	}
+	
+	@Test
+	public void testDelete() {
+
+		log.info("Delete Count : " + mapper.delete(3L));
+	
+	}
+	
+	@Test
+	public void testUpdate() {
+		BoardVO board = new BoardVO();
+		board.setBno(5L);
+		board.setTitle("Update Title");
+		board.setContent("Update Content");
+		board.setWriter("Update Writer");
+		int count = mapper.update(board);
+		log.info("Update Count : " + count);
+		
+	}
 }
