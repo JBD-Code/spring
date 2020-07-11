@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
-
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <div class="row">
   <div class="col-lg-12">
@@ -21,7 +21,7 @@
       <!-- /.panel-heading -->
       <div class="panel-body">
 
-        <form role="form" action="/board/register" method="post">
+        <form role="form" action="${contextPath}/board/register" method="post">
           <div class="form-group">
             <label>Title</label> <input class="form-control" name='title'>
           </div>
