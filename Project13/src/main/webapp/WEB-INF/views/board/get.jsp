@@ -41,8 +41,8 @@
             <label>Writer</label> <input class="form-control" name='writer' readonly="readonly"
             value='<c:out value="${board.writer}"/>'>
           </div>
-          <button data-oper="modify" class="btn btn-default">Modify</button>
-          <button data-oper="list" class="btn btn-default">List</button>
+          <button data-oper="modify" class="btn btn-default" onclick="location.href='${contextPath}/board/modify?bno=<c:out value="${board.bno}"/>'">Modify</button>
+          <button data-oper="list" class="btn btn-default" onclick="location.href='${contextPath}/board/list'">List</button>
       
 
       </div>
