@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@include file = "../includes/header.jsp" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 
 	
             <div class="row">
@@ -14,7 +16,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Board List</div>
+                        <div class="panel-heading">Board List
+                        	<button id = "regBtn" type="button" class="btn btn-xs pull-right">Register </button>
+                        </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -65,6 +69,7 @@
                 <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
+
       		<script type="text/javascript">
 				$(document).ready(function(){
 					var result = '<c:out value="${result}"/>'; 
@@ -82,6 +87,9 @@
 						}
 						$("#myModal").modal("show");
 					}
+					$("#regBtn").on("click", function(){
+						self.location ="${contextPath}/board/register";
+					});
 				});
       		
       		</script>	
