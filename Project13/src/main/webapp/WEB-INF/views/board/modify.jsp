@@ -19,12 +19,15 @@
 			
 			if(operation === "remove"){
 		
-				formObj.attr("action", "/board/remove");
+				formObj.attr("action", "${contextPath}/board/remove");
 		
 			}else if(operation === "list"){
-				self.location = "/board/list"; 
+				//self.location = "/board/list"; 
+				formObj.attr("action", "${contextPath}/board/list").attr("method","get");
+				formObj.empty();
 				return ; 
 			}
+			
 			formObj.submit();
 		});
 	});	
@@ -33,7 +36,6 @@
 
 </script>
 
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <div class="row">
   <div class="col-lg-12">

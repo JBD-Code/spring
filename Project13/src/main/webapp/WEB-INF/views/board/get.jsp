@@ -4,7 +4,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var operForm = $("#operForm");
+		
+		$("button[data-oper='modify']").on("click", function(e){
+			operForm.attr("action", "${contextPath}/board/modify").submit();
+		});
+		
+		$("#button[data-oper='list']").on("click",function(e){
+			operForm.find("#bno").remove();
+			operForm.attr("action", "${contextPath}/board/list");
+			operForm.submit();
+		});
+	});
 
+</script>
 <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header">Board Read</h1>
@@ -43,7 +58,9 @@
           </div>
           <button data-oper="modify" class="btn btn-default" onclick="location.href='${contextPath}/board/modify?bno=<c:out value="${board.bno}"/>'">Modify</button>
           <button data-oper="list" class="btn btn-default" onclick="location.href='${contextPath}/board/list'">List</button>
-      
+      		<form id="operForm" action="${contextPath}/board/modify" method="get">
+      			<input type="hidden" id="bno" name="bno" value='<c:out value="${board.bno}"/>'>
+      		</form>
 
       </div>
       <!--  end panel-body -->
