@@ -13,7 +13,9 @@ public class JDBCTests {
 
 	static {
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			//Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -23,7 +25,8 @@ public class JDBCTests {
 	public void testConnection() {
 		try(Connection con = 
 				DriverManager.getConnection(
-						"jdbc:oracle:thin:@localhost:1521:XE",
+						//"jdbc:oracle:thin:@localhost:1521:XE",
+						"jdbc:log4jdbc:oracle:thin:@localhost:1521:XE",
 						"scott",
 						"tiger")){ 
 		log.info(con);
