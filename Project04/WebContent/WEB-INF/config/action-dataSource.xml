@@ -29,7 +29,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 	
-   <bean  id="memberDAO"   class="com.spring.member.dao.MemberDAOImpl" >
+   <bean  id="memberDAO"   class="com.spring.ex01.dao.boardDAO" >
       <property name="dataSource" ref="dataSource"  />
    </bean> 
 </beans>

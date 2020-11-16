@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.ui.Model;
 
 import com.spring.ex01.dao.TicketDAO;
@@ -12,31 +14,28 @@ import com.spring.ex01.dto.TicketDTO;
 
 public class TicketServiceImpl implements TicketService {
 	
-	TicketDAO dao; 
+	@Autowired
+	private TicketDAO dao;
 	
-	@Override
-	public void execute(Model model) {
-		
-		Map<String, Object>map = model.asMap();
-		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		
-		String consumerID = request.getParameter("consumerID");
-		int amount = Integer.parseInt(request.getParameter("amount"));
-		Date paymentDate = new Date(System.currentTimeMillis());
-		
-		TicketDTO dto = new TicketDTO(); 
-		dto.setConsumerID(consumerID);
-		dto.setAmount(amount);
-		dto.setPaymentDate(paymentDate);
-		
-		dao = new TicketDAO(); 
-		dao.buyTicket(dto);
-		//dao.buyTicket(consumerID, amount);
-		model.addAttribute("dto", dto);
-		
+	public void setDao(TicketDAO dao) {
+		this.dao = dao;
 	}
 	
-	
+	public TicketDAO getDao() {
+		return dao;
+	}
 
-	
+	@Override
+	public void execute(TicketDTO ticketDTO) {
+		
+		
+		ticketDTO.getConsumerID();
+		System.out.println("서비스 IMpl "+ticketDTO.getConsumerID());
+		ticketDTO.getAmount();
+		ticketDTO.getPaymentDate();
+		System.out.println("서비스 impl = " + ticketDTO.getAmount());
+		dao.buyTicket(ticketDTO);
+		
+		
+	}
 }

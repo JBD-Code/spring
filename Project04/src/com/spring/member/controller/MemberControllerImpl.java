@@ -25,6 +25,8 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		mav.addObject("memberList", memberList);
 		return mav; 
 	}
+	
+	
 
 	private String getViewName(HttpServletRequest request) throws Exception{
 		String contextPath =request.getContextPath();

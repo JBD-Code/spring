@@ -9,11 +9,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
 <meta charset="UTF-8">
 <title>Member Form</title>
 </head>
 <body>
-	<form method="post"   action="${contextPath}/member/memberUpdate.do">
+	<form method="post" action="${contextPath}/member/memberUpdate.do">
 		<h1  style="text-align:center">Member information</h1>	
 		<table  align="center">
 		    <tr>
@@ -22,7 +24,8 @@
 		    </tr>
 		    <tr>
 		        <td width="200"><p align="right">password</td>
-		        <td width="400"><input type="password"  name="pwd" value="${member.pwd}"></td>
+		    <%--<td width="400"><input type="password"  name="pwd" value="${member.pwd}"></td> --%>
+		        <td width="400"><input type="password"  name="pwd" value=""></td>
 		    </tr>
 		    <tr>
 		        <td width="200"><p align="right">Name</td>
@@ -35,7 +38,7 @@
 		    <tr>
 		        <td width="200"><p>&nbsp;</p></td>
 		        <td width="400">
-			       <input type="submit" value="Update">
+			       <input type="submit" value="Update" >
 			       <input type="reset" value="Reset">
 		       </td>
 		    </tr>

@@ -11,7 +11,7 @@ import com.spring.member.vo.MemberVO;
 public class MemberServiceImpl implements MemberService {
 	
 	private MemberDAO memberDAO;
-
+	MemberVO memberVO;
 	public void setMemberDAO(MemberDAO memberDAO) {
 		this.memberDAO = memberDAO;
 	}
@@ -44,6 +44,22 @@ public class MemberServiceImpl implements MemberService {
 	public void deleteMember(String id) throws Exception {
 		memberDAO.memberDelete(id);
 	}
+
+	@Override
+	public MemberVO searchMemberName(String name) throws Exception {
+		memberVO = memberDAO.searchName(name);
+		// TODO Auto-generated method stub
+		return memberVO;
+	}
+
+	@Override
+	public MemberVO searchMemberId(String id) throws Exception {
+		memberVO = memberDAO.searchId(id);
+		// TODO Auto-generated method stub
+		return memberVO;
+	}
+	
+	
 	
 	
 	

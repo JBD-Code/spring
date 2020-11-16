@@ -1,13 +1,13 @@
 package com.spring.ex01;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 
 public class Main {
 	
 	public static void main(String[] args) {
 		
 		AnnotationConfigApplicationContext ctx =new AnnotationConfigApplicationContext(ApplicationConfig.class);
-	
 		Student student =ctx.getBean("student", Student.class);
 		
 		System.out.println("student1 Name : " + student.getName());

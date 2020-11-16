@@ -10,8 +10,10 @@ import com.spring.member.vo.MemberVO;
 public interface MemberDAO {
 	
 	public List<MemberVO> memberList()throws DataAccessException, Exception;
-	public void memberInsert(MemberVO memberVO);
-	public MemberVO memberSelect(String id);
-	public void memberUpdate(Map memberMap);
-	public void memberDelete(String id);
+	public void memberInsert(MemberVO memberVO)throws DataAccessException, Exception;
+	public MemberVO memberSelect(String id)throws DataAccessException, Exception;
+	public void memberUpdate(Map memberMap)throws DataAccessException, Exception;
+	public void memberDelete(String id)throws DataAccessException, Exception;
+	public MemberVO searchId(String id)throws DataAccessException, Exception;
+	public MemberVO searchName(String name)throws DataAccessException, Exception;
 }

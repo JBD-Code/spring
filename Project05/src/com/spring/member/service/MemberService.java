@@ -14,4 +14,7 @@ public interface MemberService {
 	public MemberVO selectMember(String id)throws Exception;
 	public void updateMember(Map memberMap) throws Exception;
 	public void deleteMember(String id )throws Exception; 
+	public MemberVO searchMemberName(String name) throws Exception;
+	public MemberVO searchMemberId(String id) throws Exception;
+	
 }

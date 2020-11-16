@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.dao.DataAccessException;
 
 import com.spring.member.dao.MemberDAO;
+import com.spring.member.vo.MemberVO;
 
 public class MemberServiceImpl implements MemberService {
 	private MemberDAO memberDAO;
@@ -18,10 +19,11 @@ public class MemberServiceImpl implements MemberService {
 		
 		List memberList = null ; 
 		memberList = memberDAO.selectAllMember();
-		System.out.println("MemberServiceImpl listMember Method Call");
 		return memberList;
 	}
 
+	
+	
 
 	
 	

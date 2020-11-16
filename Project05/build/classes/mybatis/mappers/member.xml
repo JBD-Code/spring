@@ -36,9 +36,20 @@
 		<![CDATA[
 			select * from t_member 
 			where id = #{id}
-		
+			
 		]]>
-	</select>	
+	</select>
+	
+	<select id= "searchId" parameterType="id" resultType="memberVO">
+		
+		<![CDATA[
+		<include refid="all"/>
+		]]>
+		<where>
+			id=#{id}
+		</where>	
+	
+	</select>
 	
 	<update id = "memberUpdate" parameterType="java.util.HashMap">
 		<![CDATA[

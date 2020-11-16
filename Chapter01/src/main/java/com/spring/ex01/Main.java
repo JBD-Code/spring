@@ -6,7 +6,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 public class Main {
 	public static void main(String[] args) {
 		
-		//Spring이 적용되지 않음 
+		//Spring
 		/*
 		MyCalculator myCalculator = new MyCalculator();
 		myCalculator.setMycalculator(new Calculator());

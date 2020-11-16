@@ -1,10 +1,12 @@
 package com.spring.ex01.service;
 
-import org.springframework.ui.Model;
+
+
+import com.spring.ex01.dto.TicketDTO;
 
 public interface TicketService {
 
-	public void execute(Model model);
+	public void execute(TicketDTO ticketDTO);
 }
 
 

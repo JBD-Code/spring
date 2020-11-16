@@ -103,6 +103,33 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 	}
 	
 	
+	
+	
+
+	@Override
+	public ModelAndView memberSearch(HttpServletRequest request, HttpServletResponse response)
+			throws DataAccessException, Exception {
+		String search = request.getParameter("search");
+		ModelAndView mav = new ModelAndView();
+		MemberVO memberVO = new MemberVO();
+		if(search.equals("memberList")||search==null) {
+
+			mav = new ModelAndView("redirect:/member/memberList.do");
+		
+		}else if (search.equals("memberSearchID")) {
+			String id = request.getParameter("value");
+			memberVO = memberService.searchMemberId(id);
+			mav.addObject("memberList", memberVO);
+			 
+		}else if(search.equals("memberSearchName")) { 
+			String name = request.getParameter("value");
+			memberVO = memberService.searchMemberName(name);
+			mav.addObject("memberList", memberVO);
+			
+		} 
+		
+		return mav;
+	}
 
 	@Override
 	public ModelAndView memberDelete(HttpServletRequest request, HttpServletResponse response)

@@ -47,8 +47,5 @@ public class Main {
 	
 		ctx.close();
 		
-		
-		
-		
 	}
 }

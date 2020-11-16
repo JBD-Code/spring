@@ -40,6 +40,7 @@
 				<prop key="/member/memberInfo.do">memberInfo</prop>
 				<prop key="/member/memberUpdate.do">memberUpdate</prop>
 				<prop key="/member/memberDelete.do">memberDelete</prop>
+				<prop key="/member/memberSearch.do">memberSearch</prop>
 			</props>	
 		</property>
 	</bean>

@@ -31,16 +31,11 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
 		String formattedDate = dateFormat.format(date);
-		
 		model.addAttribute("serverTime", formattedDate );
-		
 		return "home";
 	}
 	
@@ -61,6 +56,15 @@ public class HomeController {
 	
 	@RequestMapping(value = "/memberInfo", method={RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView memberInfo(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav= new ModelAndView();
+		mav.addObject("id", "admin");
+		mav.getViewName();
+		return mav;
+	}
+	@RequestMapping(value = "/memberInsert", method={RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView memberInsert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		
 		ModelAndView mav= new ModelAndView();
 		mav.addObject("id", "admin");
 		mav.getViewName();

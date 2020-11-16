@@ -42,24 +42,38 @@ public class MemberDAOImpl implements MemberDAO{
 	public MemberVO memberSelect(String id) {
 		Object memberVO = null ; 
 		memberVO = sqlSession.selectOne("mapper.member.memberSelect", id);
-		return (MemberVO) memberVO; 
+		return (MemberVO) memberVO;
 	}
 
 
 
 	@Override
-	public void memberUpdate(Map memberMap) {
-		
-		sqlSession.update("mapper.member.memberUpdate", memberMap);
+	public void memberUpdate(Map memberMap) throws DataAccessException, Exception {
+		// TODO Auto-generated method stub
 		
 	}
 
 
 
 	@Override
-	public void memberDelete(String id) {
-		sqlSession.delete("mapper.member.memberDelete", id);
+	public void memberDelete(String id) throws DataAccessException, Exception {
+		// TODO Auto-generated method stub
 		
+	}
+
+
+
+	@Override
+	public MemberVO searchId(String id) throws DataAccessException, Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public MemberVO searchName(String name) throws DataAccessException, Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
